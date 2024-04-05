@@ -3,8 +3,6 @@
 ## 프로젝트 이미지 📝
 <img width="551" alt="image" src="https://github.com/Koo-Tae-Ho/Movie_Information/assets/133594273/17c33a82-4beb-4340-a229-ce0f25bcfba4">
 
---
-
 ## 주요 기능 ⚙️
 
 1. **검색기능**: 영화제목으로 영화를 검색하여, 검색된 영화만 필터링
