@@ -1,9 +1,9 @@
 <template>
     <Navbar />
-    <Event :text="text" />
+    <Event :text="text[eventTextNum]" />
     <SearchBar :data="data_temp" @searchMovie="searchMovie($event)" />
     <p>
-        <button @:click="showAllMovie">전체보기</button>
+        <button @:click="showAllMovie" class="btn-all">전체보기</button>
     </p>
     <Movies
         :data="data_temp"
@@ -37,13 +37,24 @@ export default {
             data: data, //원본
             data_temp: [...data], //사본
             selectedMovie: 0,
-            text: "NETFLIX 강렬한 운명의 드라마, 경기크리쳐!",
+            text: [
+                "NETFLIX 강렬한 운명의 드라마, 경기크리쳐!",
+                "디즈니 100주년 기념작, 위시",
+                "그날, 대한민국의 운명이 바뀌었다, 서울의 봄",
+            ],
+            eventTextNum: 0,
+            interval: null,
         };
     },
 
     methods: {
-        increaseLike(i) {
-            this.data[i].like += 1;
+        increaseLike(id) {
+            //this.data[i].like += 1;
+            this.data.find((movie) => {
+                if (movie.id == id) {
+                    movie.like += 1;
+                }
+            });
         },
         searchMovie(title) {
             //영화제목이 포함된 데이터를 가져옴
@@ -61,6 +72,19 @@ export default {
         Modal: Modal,
         Movies: Movies,
         SearchBar: SearchBar,
+    },
+    mounted() {
+        console.log("mounted");
+        this.interval = setInterval(() => {
+            if (this.eventTextNum == this.text.length - 1) {
+                this.eventTextNum = 0;
+            } else {
+                this.eventTextNum += 1;
+            }
+        }, 3000);
+    },
+    unmounted() {
+        clearInterval(this.interval);
     },
 };
 </script>
@@ -130,5 +154,9 @@ button {
     width: 80%;
     padding: 20px;
     border-radius: 10px;
+}
+
+p:has(.btn-all) {
+    text-align: center;
 }
 </style>
