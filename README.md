@@ -1,4 +1,4 @@
-# Movie_Infromation: 뷰를 사용한 간단한 영화소개 페이지 🎬
+# Movie_Infromation: 뷰를 사용한 간단한 영화소개 페이지
 
 ## 프로젝트 이미지 🎥
 <img width="551" alt="image" src="https://github.com/Koo-Tae-Ho/Movie_Information/assets/133594273/17c33a82-4beb-4340-a229-ce0f25bcfba4">
